@@ -1,11 +1,11 @@
-Zip bomb tools
+# Zip bomb tools
 https://www.bamsoftware.com/hacks/zipbomb/
 David Fifield <david@bamsoftware.com>
 Public domain
 
 
-zipbomb is a Python 3 script that generates zip bombs according to
-parameters. Example:
+zipbomb is a Python 3 script that generates zip bombs according to parameters. 
+Example:
 
 ```shell
 	python3 zipbomb --mode=quoted_overlap --num-files=250 --compressed-size=21179 > zbsm.zip
@@ -13,9 +13,7 @@ parameters. Example:
 
 See Makefile for some examples of using it.
 
-optimize.R is an R script that computes optimal parameters for the
-zipbomb script, for zip bombs of various sizes. optimize.out is
-pregenerated output of optimize.R.
+optimize.R is an R script that computes optimal parameters for the zipbomb script, for zip bombs of various sizes.optimize.out is pregenerated output of optimize.R.
 
 ```shell
 	Rscript optimize.R | tee optimize.out
@@ -23,8 +21,7 @@ pregenerated output of optimize.R.
 
 The optimized parameters are what you see in Makefile.
 
-ratio is a Python 3 script that computes the compression ratio of zip
-files listed on the command line.
+ratio is a Python 3 script that computes the compression ratio of zip files listed on the command line.
 
 ```shell
 	$ make zbsm.zip zblg.zip zbxl.zip
@@ -36,12 +33,10 @@ files listed on the command line.
 
 ## zipbomb usage
 
-The required options are the number of files you want the zip bomb to
-contain,
+The required options are the number of files you want the zip bomb to contain,
 
 	--num-files=100
-and the size of the kernel, which can be either a specific *compressed*
-size, or a maximum *uncompressed* size.
+and the size of the kernel, which can be either a specific *compressed* size, or a maximum *uncompressed* size.
 	
 	--compressed-size=1000
 	
@@ -56,8 +51,7 @@ The script can run in one of three main modes:
 	
 	--mode=quoted_overlap (default)
 
-In quoted_overlap mode, you can additionally enable extra-field quoting;
-you need to provide a 4-digit hexadecimal tag type:
+In quoted_overlap mode, you can additionally enable extra-field quoting;you need to provide a 4-digit hexadecimal tag type:
 	
 	--mode=quoted_overlap --extra=9999
 
@@ -68,15 +62,12 @@ You can choose either DEFLATE or bzip2 as the compression algorithm.
 	--algorithm=bzip2
 
 
-There are limitations when using bzip2. If you use bzip2 in
-quoted_overlap mode, you must also use --extra, because bzip2 does not
-have its own way of quoting local file headers. And the argument to the
+There are limitations when using bzip2. If you use bzip2 in quoted_overlap mode, you must also use --extra, because bzip2 does not have its own way of quoting local file headers. 
+And the argument to the
 
 --compressed-size must be congruent to 14 mod 32 when used with bzip2.
 
-Enable Zip64 support for zip bombs that need it (more than 0xfffe files
-or files larger than 0xfffffffe bytes). The script will crash somewhere
-if the output needs Zip64 but the option isn't enabled.
+Enable Zip64 support for zip bombs that need it (more than 0xfffe files or files larger than 0xfffffffe bytes). The script will crash somewhere if the output needs Zip64 but the option isn't enabled.
 	
 	--zip64
 
