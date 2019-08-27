@@ -1,7 +1,8 @@
 # Zip bomb tools
-https://www.bamsoftware.com/hacks/zipbomb/
-David Fifield <david@bamsoftware.com>
-Public domain
+
+https://www.bamsoftware.com/hacks/zipbomb/  
+David Fifield <david@bamsoftware.com>  
+Public domain  
 
 
 zipbomb is a Python 3 script that generates zip bombs according to parameters. 
